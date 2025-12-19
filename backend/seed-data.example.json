@@ -1,0 +1,72 @@
+{
+    "venues": [
+        {
+            "_id": "64b8f8d2a1b2c3d4e5f60111",
+            "name": "Arena One",
+            "location": "Mumbai"
+        },
+        {
+            "_id": "64b8f8d2a1b2c3d4e5f60112",
+            "name": "Sports Hub",
+            "location": "Delhi"
+        }
+    ],
+    "members": [
+        {
+            "_id": "64b8f8d2a1b2c3d4e5f60201",
+            "name": "Alice",
+            "status": "active",
+            "is_trial_user": false,
+            "converted_from_trial": true,
+            "join_date": "2024-06-10"
+        },
+        {
+            "_id": "64b8f8d2a1b2c3d4e5f60202",
+            "name": "Bob",
+            "status": "inactive",
+            "is_trial_user": true,
+            "converted_from_trial": false,
+            "join_date": "2024-07-01"
+        }
+    ],
+    "bookings": [
+        {
+            "_id": "64b8f8d2a1b2c3d4e5f60301",
+            "venue_id": "64b8f8d2a1b2c3d4e5f60111",
+            "sport_id": "64b8f8d2a1b2c3d4e5f60501",
+            "member_id": "64b8f8d2a1b2c3d4e5f60201",
+            "booking_date": "2024-08-01T10:00:00Z",
+            "amount": 1200,
+            "coupon_code": "WELCOME10",
+            "status": "confirmed"
+        },
+        {
+            "_id": "64b8f8d2a1b2c3d4e5f60302",
+            "venue_id": "64b8f8d2a1b2c3d4e5f60112",
+            "sport_id": "64b8f8d2a1b2c3d4e5f60502",
+            "member_id": "64b8f8d2a1b2c3d4e5f60202",
+            "booking_date": "2024-08-03T12:30:00Z",
+            "amount": 800,
+            "coupon_code": null,
+            "status": "cancelled"
+        }
+    ],
+    "transactions": [
+        {
+            "_id": "64b8f8d2a1b2c3d4e5f60401",
+            "booking_id": "64b8f8d2a1b2c3d4e5f60301",
+            "type": "payment",
+            "amount": 1200,
+            "status": "success",
+            "transaction_date": "2024-08-01T10:05:00Z"
+        },
+        {
+            "_id": "64b8f8d2a1b2c3d4e5f60402",
+            "booking_id": "64b8f8d2a1b2c3d4e5f60302",
+            "type": "refund",
+            "amount": 800,
+            "status": "success",
+            "transaction_date": "2024-08-03T13:00:00Z"
+        }
+    ]
+}

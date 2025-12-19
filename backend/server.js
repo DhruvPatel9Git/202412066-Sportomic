@@ -11,14 +11,26 @@ const { getDb } = require("./db");
 
 const PORT = process.env.PORT || 3001;
 
-function setCors(res) {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "GET,OPTIONS");
+function setCors(req, res) {
+  const origin = req.headers?.origin;
+  const allowed = (
+    process.env.ALLOWED_ORIGINS ||
+    "https://two02412066-sportomic.onrender.com,http://localhost:5173"
+  )
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean);
+  if (origin && allowed.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+    // tell caches the response varies by origin
+    res.setHeader("Vary", "Origin");
+  }
+  res.setHeader("Access-Control-Allow-Methods", "GET,POST,OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 }
 
 const server = http.createServer(async (req, res) => {
-  setCors(res);
+  setCors(req, res);
 
   if (req.method === "OPTIONS") {
     res.writeHead(204);
